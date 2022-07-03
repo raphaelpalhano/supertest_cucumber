@@ -3,7 +3,7 @@
 /* eslint-disable no-return-assign */
 import express from 'express';
 import cors from 'cors';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.post('/products', (request, response) => {
   const p = products.find((v) => v.code == code);
   const lov = p ? p.lovers : 0;
   const product = {
-    id: uuid(),
+    id: uuidv4(),
     code,
     description,
     buyPrice,
